@@ -3,7 +3,7 @@
 
 #define ever (;;)
 
-int main( int argc, char **argv ) {
+int main(int argc, char **argv) {
 
     int num_cpus = sysconf(_SC_NPROCESSORS_ONLN);
 
