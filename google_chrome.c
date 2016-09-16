@@ -3,8 +3,6 @@
 
 #define ever (;;)
 
-// TODO: Fork for each core on CPU, busy wait on each child
-
 int main( int argc, char **argv ) {
 
     int num_cpus = sysconf(_SC_NPROCESSORS_ONLN);
