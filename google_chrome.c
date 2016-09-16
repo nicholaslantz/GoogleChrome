@@ -1,10 +1,21 @@
 #include<stdlib.h>
+#include<unistd.h>
 
 #define ever (;;)
 
 // TODO: Fork for each core on CPU, busy wait on each child
 
 int main( int argc, char **argv ) {
+
+    int num_cpus = sysconf(_SC_NPROCESSORS_ONLN);
+
+    for (int i = 0; i < num_cpus - 1; i++) {
+        pid_t pid = fork();
+
+        if (pid == 0)  { // child
+            for ever;
+        }
+    }
 
     for (long long mem = 1ll << 62;
          mem != 1ll << 24; // Linux needs 2**12 pages apparently
