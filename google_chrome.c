@@ -12,9 +12,9 @@ int main( int argc, char **argv ) {
 
         void *junk_ptr = malloc(mem);
         char i = (char) junk_ptr;
-        for (char *p = junk_ptr; junk_ptr && p < junk_ptr + mem; p++) {
-            *p = i++;
-        }
+        for (char *p = junk_ptr;
+             junk_ptr && p < junk_ptr + mem;
+             *(++p) = i++);
     }
 
     for ever;
