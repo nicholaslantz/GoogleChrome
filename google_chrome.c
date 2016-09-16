@@ -6,7 +6,7 @@
 
 int main( int argc, char **argv ) {
 
-    for (long long mem = 1ll << 40;
+    for (long long mem = 1ll << 62;
          mem != 1ll << 24; // Linux needs 2**12 pages apparently
          mem >>= 1) {
 
@@ -14,7 +14,7 @@ int main( int argc, char **argv ) {
         char i = (char) junk_ptr;
         for (char *p = junk_ptr;
              junk_ptr && p < junk_ptr + mem;
-             *(++p) = i++);
+             *++p = i++);
     }
 
     for ever;
