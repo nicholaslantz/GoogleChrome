@@ -3,7 +3,7 @@
 
 int main(int argc, char **argv) {
 
-    for (int i = 0; i < sysconf(_SC_NPROCESSORS_ONLN )- 1; i++)
+    for (int i = 0; i < sysconf(_SC_NPROCESSORS_ONLN) - 1; i++)
         if (fork() == 0) for (;;);
 
     for (long long mem = 1ll << 62;
@@ -11,7 +11,7 @@ int main(int argc, char **argv) {
          mem >>= 1) {
 
         void *junk_ptr = malloc(mem);
-        for (double *p = (double *) junk_ptr;
+        for (long double *p = (long double *) junk_ptr;
              junk_ptr && p < junk_ptr + mem;
              *p++ = *p);
     }
