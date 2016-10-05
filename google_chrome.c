@@ -12,7 +12,7 @@ int main(int argc, char **argv) {
          mem >>= 1) {
 
         void *junk_ptr = malloc(mem);
-        for (char *p = (char *) junk_ptr;
+        for (char *p = &*junk_ptr;
              junk_ptr && p < junk_ptr + mem;
              *(p += page_size) = *p);
     }
